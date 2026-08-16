@@ -30,15 +30,15 @@
 
   /* HERO - USING YOUR HALL PHOTO */
   .hero{
+    position:relative;
     height:100vh;
-    background-image: linear-gradient(rgba(10,25,47,0.65), rgba(201,169,97,0.25)), url("./Assets/LANDING PAGE.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display:flex; align-items:center; justify-content:center; text-align:center; color:var(--white);
     padding:80px 5% 0 5%;
+    overflow:hidden;
   }
-  .hero-content{max-width:800px;}
+  .hero::before{content:""; position:absolute; inset:0; background:linear-gradient(rgba(10,25,47,0.65), rgba(201,169,97,0.25)); z-index:1;}
+  .hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:0;}
+  .hero-content{max-width:800px; position:relative; z-index:2;}
   .hero h1{font-size:3.8rem; color:var(--white); margin-bottom:1rem; line-height:1.2; text-shadow:0 4px 14px rgba(0,0,0,0.6);}
   .hero p{font-size:1.2rem; margin-bottom:2rem; font-weight:300; text-shadow:0 2px 8px rgba(0,0,0,0.5);}
   .btn{display:inline-block; padding:14px 35px; background:linear-gradient(90deg, var(--rose-gold), #D4AF37); color:var(--navy); border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s;}
@@ -109,6 +109,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <img class="hero-bg" src="./Assets/landing page.webp" alt="Lanterna Rosa Hall">
   <div class="hero-content">
     <h1>Lanterna Rosa Event Centre</h1>
     <p>Where Elegance Meets Celebration. The most sophisticated venue in Yenagoa for Weddings, Conferences, Birthdays, and Corporate Events.</p>
@@ -124,9 +125,9 @@
   </div>
   <div class="about">
     <div class="about-img">
-      <img src="./Assets/DOWN HALL.jpg" alt="Lanterna Rose Inside Hall">
-      <img src="./Assets/TOP HALL.jpg" alt="Lanterna Rose Inside Hall">
-      <img src="./Assets/TOP HALL 3.jpg" alt="Lanterna Rose Inside Hall">
+      <img src="./Assets/down hall.webp" alt="Lanterna Rose Inside Hall">
+      <img src="./Assets/top hall.webp" alt="Lanterna Rose Inside Hall">
+      <img src="./Assets/top view 2.webp" alt="Lanterna Rose Inside Hall">
     </div>
     <div class="about-text">
       <h3>Your Perfect Venue in Bayelsa</h3>
@@ -152,51 +153,51 @@
   </div>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="./Assets/executive hall 2.jpg" alt="Executive Hall">
+      <img src="./Assets/confrence hall.webp" alt="Executive Hall">
       <div class="gallery-caption">Main Hall - Banquet Setup</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/DOWN HALL 3.jpg" alt="Main Hall Setup">
+      <img src="./Assets/down hall.webp" alt="Main Hall Setup">
       <div class="gallery-caption">Elegant Interior Design</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/TOP HALL 2.jpg" alt="Top Hall">
+      <img src="./Assets/top hall.webp" alt="Top Hall">
       <div class="gallery-caption">Conference & Training Setup</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/open space 4.jpg" alt="Open Space">
+      <img src="./Assets/open air 2.webp" alt="Open Space">
       <div class="gallery-caption">Spacious Event Space</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/open air space 1.jpg" alt="Open Air Space">
+      <img src="./Assets/open air space.webp" alt="Open Air Space">
       <div class="gallery-caption">Open Air Event Area</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/Toilet pix 1.jpg" alt="Restroom Facilities">
+      <img src="./Assets/clean toilet.webp" alt="Restroom Facilities">
       <div class="gallery-caption">Clean Restroom Facilities</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/open air space 3.jpg" alt="Open Air Space 3">
+      <img src="./Assets/flexible seating.webp" alt="Open Air Space 3">
       <div class="gallery-caption">Outdoor Views</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/block view.jpg" alt="Block View">
+      <img src="./Assets/block view.webp" alt="Block View">
       <div class="gallery-caption">Surrounding Area</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/gate view.jpg" alt="Gate View">
+      <img src="./Assets/gate view.webp" alt="Gate View">
       <div class="gallery-caption">Main Entrance</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/Walk way.jpg" alt="Walk Way">
+      <img src="./Assets/walk way.webp" alt="Walk Way">
       <div class="gallery-caption">Pleasant Walkways</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/open air space 2.jpg" alt="Parking/Open Air Space">
+      <img src="./Assets/compressed_1786913784922.webp" alt="Parking/Open Air Space">
       <div class="gallery-caption">Parking & Open-Air Area</div>
     </div>
     <div class="gallery-item">
-      <img src="./Assets/DOWN HALL 2.jpg" alt="Down Hall">
+      <img src="./Assets/power plant.jpg" alt="Down Hall">
       <div class="gallery-caption">Flexible Seating Arrangement</div>
     </div>
   </div>
@@ -253,7 +254,7 @@
       <p><b>Phone/WhatsApp:</b> <a href="https://wa.me/2348141982139">0814 198 2139</a></p>
       <p><b>Opening Hours:</b> Mon - Sun: 8:00am - 10:00pm</p>
     </div>
-    <form class="contact-form" id="whatsappForm" action="#" onsubmit="event.preventDefault();">
+    <form class="contact-form" id="whatsappForm">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="tel" name="phone" placeholder="Phone / WhatsApp number" required>
       <input type="text" name="event" placeholder="Event type (e.g. Wedding)" required>
@@ -265,5 +266,39 @@
   <footer>
     <p><b>Designed by CORAB Tech Citadel</b></p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('whatsappForm');
+
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = form.querySelector('[name="name"]').value.trim();
+        const phone = form.querySelector('[name="phone"]').value.trim();
+        const eventType = form.querySelector('[name="event"]').value.trim();
+        const details = form.querySelector('[name="details"]').value.trim();
+
+        if (!name || !phone || !eventType) {
+          alert('Please fill in your name, phone number, and event type.');
+          return;
+        }
+
+        const messageText = [
+          'Hello Lanterna Rosa,',
+          '',
+          `Name: ${name}`,
+          `Phone: ${phone}`,
+          `Event: ${eventType}`,
+          `Details: ${details || 'N/A'}`
+        ].join('\n');
+
+        const waLink = 'https://wa.me/2348141982139?text=' + encodeURIComponent(messageText);
+        window.open(waLink, '_blank');
+      });
+    });
+  </script>
   </body>
 </html>
